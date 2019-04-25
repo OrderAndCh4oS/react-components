@@ -1,47 +1,61 @@
 /* eslint-disable react/prop-types,indent */
 import React from 'react';
 
-export const Container = ({children, className = '', ...rest}) =>
-    <div className={'container ' + className} {...rest}>{children}</div>;
+export const Container = ({children, tag = 'div', className = '', ...rest}) => {
+    const Tag = `${tag}`;
+    return (<Tag className={'container ' + className} {...rest}>{children}</Tag>);
+};
 
-export const Row = ({children, className = '', ...rest}) =>
-    <div className={'row ' + className} {...rest}>{children}</div>;
+export const Row = ({children, tag = 'div', className = '', ...rest}) => {
+    const Tag = `${tag}`;
+    return (<Tag className={'row ' + className} {...rest}>{children}</Tag>);
+};
 
-export const Column = ({span = ['12'], push = [], className = '', children, ...rest}) => {
+export const Column = ({span = ['12'], push = [], tag = 'div', className = '', children, ...rest}) => {
+    const Tag = `${tag}`;
     const classes = [
         'column',
         span.map(s => 'col-' + s).join(' '),
         push.map(s => 'push-' + s).join(' '),
-        className
+        className,
     ].join(' ');
     return (
-        <div className={classes} {...rest}>
-            <div>
-                {children}
-            </div>
-        </div>
+        <Tag className={classes} {...rest}>
+            {children}
+        </Tag>
     );
 };
 
-export const Panel = ({children, className = '', ...rest}) =>
-    <div className={'panel ' + className} {...rest}>
-        {children}
-    </div>
-;
+export const Panel = ({children, tag = 'div', className = '', ...rest}) => {
+    const Tag = `${tag}`;
+    return (
+        <Tag className={'panel ' + className} {...rest}>
+            {children}
+        </Tag>
+    );
+};
+
+function getRows(rows) {
+    return rows.map(
+        (row, index) =>
+            <tr key={index}>
+                {row.map((data, index) =>
+                    <td key={index}>{data}</td>)}
+            </tr>,
+    );
+}
+
+function getHeaders(headers) {
+    return <tr>{headers.map((header, index) =>
+        <th key={index}>{header}</th>)}</tr>;
+}
 
 export const Table = ({headers = [], rows = [], className = '', ...rest}) =>
     <table className={'table ' + className}  {...rest}>
         <thead>
-        <tr>
-            {headers.map((header, index) => <th key={index}>{header}</th>)}
-        </tr>
+        {getHeaders(headers)}
         </thead>
         <tbody>
-        {rows.map(
-            (row, index) =>
-                <tr key={index}>
-                    {row.map((data, index) => <td key={index}>{data}</td>)}
-                </tr>
-        )}
+        {getRows(rows)};
         </tbody>
     </table>;

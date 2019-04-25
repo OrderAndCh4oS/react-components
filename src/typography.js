@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const Title = ({tag = 'h1', className = '', children, ...rest}) => {
-    const HeadingTag = `${tag}`;
-    return (<HeadingTag className={'title ' + className} {...rest}>{children}</HeadingTag>);
+    const Tag = `${tag}`;
+    return (<Tag className={'title ' + className} {...rest}>{children}</Tag>);
 };
 
 Title.propTypes = {
