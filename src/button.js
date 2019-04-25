@@ -2,13 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {NavLink} from 'react-router-dom';
 
-export const Button = ({type = 'primary', className = '', iconLeft = null, iconRight = null, children, ...rest}) => (
-    <button className={['button', type, iconLeft ? 'icon-left' : '', className].join(' ')} {...rest}>
-        {iconLeft ? <span className='icon-left'>{iconLeft}</span> : null}
-        {iconLeft ? ' ' : null}
+export const Button = ({className = '', iconLeft = null, iconRight = null, children, ...rest}) => (
+    <button className={['button', className].join(' ')} {...rest}>
+        {iconLeft ? <span className='button--icon-left'>{iconLeft}</span> : null}
         {children}
-        {iconRight ? ' ' : null}
-        {iconRight ? <span className='icon-right'>{iconRight}</span> : null}
+        {iconRight ? <span className='button--icon-right'>{iconRight}</span> : null}
     </button>
 );
 
@@ -20,13 +18,11 @@ Button.propTypes = {
     children: PropTypes.string.isRequired
 };
 
-export const LinkButton = ({to, type = 'primary', className = '', iconLeft = null, iconRight = null, children, ...rest}) => (
-    <NavLink to={to} className={['button', type, iconLeft ? 'icon-left' : '', className].join(' ')} {...rest}>
-        {iconLeft ? <span className='icon-left'>{iconLeft}</span> : null}
-        {iconLeft ? ' ' : null}
+export const LinkButton = ({to, className = '', iconLeft = null, iconRight = null, children, ...rest}) => (
+    <NavLink to={to} className={['button', className].join(' ')} {...rest}>
+        {iconLeft ? <span className='button--icon-left'>{iconLeft}</span> : null}
         {children}
-        {iconRight ? ' ' : null}
-        {iconRight ? <span className='icon-right'>{iconRight}</span> : null}
+        {iconRight ? <span className='button--icon-right'>{iconRight}</span> : null}
     </NavLink>
 );
 
@@ -39,13 +35,11 @@ LinkButton.propTypes = {
     children: PropTypes.string.isRequired
 };
 
-export const Link = ({to, type = 'text', className = '', iconLeft = null, iconRight = null, children, ...rest}) => (
-    <NavLink to={to} className={['link', type, iconLeft ? 'icon-left' : '', className].join(' ')} {...rest}>
-        {iconLeft ? <span className='icon-left'>{iconLeft}</span> : null}
-        {iconLeft ? ' ' : null}
+export const Link = ({to, className = '', iconLeft = null, iconRight = null, children, ...rest}) => (
+    <NavLink to={to} className={['link', className].join(' ')} {...rest}>
+        {iconLeft ? <span className='button--icon-left'>{iconLeft}</span> : null}
         {children}
-        {iconRight ? ' ' : null}
-        {iconRight ? <span className='icon-right'>{iconRight}</span> : null}
+        {iconRight ? <span className='button--icon-right'>{iconRight}</span> : null}
     </NavLink>
 );
 

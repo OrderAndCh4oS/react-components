@@ -1,95 +1,163 @@
 /* eslint-disable react/prop-types */
 
 import React from 'react';
-import Slider from 'rc-slider/lib/Slider';
+import RCSlider from 'rc-slider/lib/Slider';
 import 'rc-slider/assets/index.css';
 
-const Label = ({label, htmlFor}) => <label htmlFor={htmlFor} className="form-label">{label}</label>;
+const Label = ({label, htmlFor}) => <label
+    htmlFor={htmlFor} className="label--text"
+>{label}</label>;
 
-export const FormError = ({error}) => error ? <p className="form-error">{error}</p> : null;
+export const FormError = ({error}) => error ?
+    <p className="form-field--error">{error}</p> : null;
 
-export const Field = ({type, className, children, error}) => (
-    <div className={['form-field', type, className].join(' ')}>
+export const Field = ({className, children, error}) => (
+    <div className={['form-field', className].join(' ')}>
         {children}
         <FormError error={error}/>
     </div>
 );
 
-export const Input = ({label, name, type, error, className, ...props}) => {
+export const Input = (
+    {
+        label,
+        name,
+        error = false,
+        valid = false,
+        className = '',
+        ...props
+    }) => {
     return (
-        <Field type={type} error={error}>
+        <Field error={error}>
             <Label label={label} htmlFor={name}/>
-            <input {...props} id={name} name={name} type={type}
-                   className={['form-input', error ? 'form-error' : '', className].join(' ')}/>
+            <input {...props} id={name} name={name} type={type} className={[
+                'form-field--input',
+                error ? 'input--error' : '',
+                valid ? 'input--valid' : '',
+                className,
+            ].join(' ')}
+            />
         </Field>
     );
 };
 
-export const TextArea = ({label, name, error, className, ...props}) => (
+export const TextArea = (
+    {
+        label,
+        name,
+        error = false,
+        valid = false,
+        className = '',
+        ...props
+    }) => (
     <Field type='text-area' error={error}>
         <Label label={label} htmlFor={name}/>
-        <textarea {...props} id={name} name={name}
-                  className={['form-text-area', error ? 'form-error' : '', className].join(' ')}/>
+        <textarea {...props} id={name} name={name} className={[
+            'form-field--text-area',
+            error ? 'input--error' : '',
+            valid ? 'input--valid' : '',
+            className,
+        ].join(' ')}
+        />
     </Field>
 );
 
-export const Select = ({label, name, error, className, options = [], initialField = 'Select an option', ...props}) => {
+export const Select = (
+    {
+        label,
+        name,
+        error = false,
+        valid = false,
+        className = '',
+        options = [],
+        initialField = 'Select an option',
+        ...props
+    }) => {
     return (
         <Field type='select' error={error}>
             <Label label={label} htmlFor={name}/>
-            <select {...props} id={name} name={name}
-                    className={['form-select', error ? 'form-error' : '', className].join(' ')}>
+            <select {...props} id={name} name={name} className={[
+                'form-field--select',
+                error ? 'input--error' : '',
+                className,
+            ].join(' ')}
+            >
                 <option value="">{initialField}</option>
                 {options.map((option) =>
-                    <option key={option.value} value={option.value}>{option.name}</option>
+                    <option
+                        key={option.value} value={option.value}
+                    >{option.name}</option>,
                 )}
             </select>
         </Field>
     );
 };
-
-export const Switch = ({value = false, label, name, error, onChange, onBlur, className, ...props}) => {
-    const classes = ['switch', className, value ? 'on' : ''].join(' ');
-    const title = [value ? 'on' : 'off'].join(' ');
+// Todo: add type back in, use form-field--xxxx style classes for type
+export const Switch = (
+    {
+        value = false,
+        label,
+        name,
+        error,
+        onChange,
+        onBlur,
+        className,
+        ...props
+    }) => {
+    const classes = ['button--switch', className, value ? 'button--switch--on' : ''].join(' ');
+    const title = [value ? 'button--switch--on' : 'button--switch--off'].join(' ');
     return (
-        <Field type='switch' error={error}>
+        <Field type='form-field--switch' error={error}>
             <Label label={label} htmlFor={name}/>
-            <button type='button' id={name} title={title}
-                    onBlur={() => {
-                        onBlur(true);
-                    }}
-                    onClick={() => {
-                        onChange(name, !value);
-                    }}
-                    className={classes}
-                    {...props}
+            <button
+                type='button' id={name} title={title} onBlur={() => {
+                onBlur(true);
+            }} onClick={() => {
+                onChange(name, !value);
+            }} className={classes}
+                {...props}
             />
         </Field>
     );
 };
 
 const StyledSlider = (props) =>
-    <Slider
-        {...props}
-        style={{marginTop: 18}}
-        handleStyle={{
-            borderColor: '#332f2f',
-            borderWidth: 1,
-            height: 14,
-            width: 14,
-            marginLeft: -7,
-            marginTop: -3,
-            backgroundColor: '#fcfcfc'
+    <RCSlider
+        {...props} style={{marginTop: 18}} handleStyle={{
+        borderColor: '#332f2f',
+        borderWidth: 1,
+        height: 14,
+        width: 14,
+        marginLeft: -7,
+        marginTop: -3,
+        backgroundColor: '#fcfcfc',
 
-        }}
-        railStyle={{backgroundColor: '#332f2f', height: 8}}
-        trackStyle={{backgroundColor: '#fcfcfc', height: 6, marginTop: 1, marginLeft: 1}}
+    }} railStyle={{backgroundColor: '#332f2f', height: 8}} trackStyle={{
+        backgroundColor: '#fcfcfc',
+        height: 6,
+        marginTop: 1,
+        marginLeft: 1,
+    }}
     />;
 
-export const MySlider = ({label, value, name, type, error, decimals = 0, className, onChange, onBlur, ...props}) => {
+export const Slider = (
+    {
+        label,
+        value,
+        name,
+        type,
+        error,
+        decimals = 0,
+        className,
+        onChange,
+        onBlur,
+        ...props
+    }) => {
     return (
         <Field type={type} error={error}>
-            <Label label={label + ': ' + value.toFixed(decimals)} htmlFor={name}/>
+            <Label
+                label={label + ': ' + value.toFixed(decimals)} htmlFor={name}
+            />
             <StyledSlider
                 name={name}
                 id={name}
