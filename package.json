@@ -3,7 +3,11 @@
     "version": "0.1.0",
     "description": "React component library",
     "main": "build/index.js",
-    "scripts": {
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/sarcoma/orderandchaos-react-components"
+    },
+  "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "webpack --watch",
         "build": "webpack"
