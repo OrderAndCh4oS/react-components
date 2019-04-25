@@ -1,0 +1,40 @@
+{
+    "name": "@orderandchaos/react-components",
+    "version": "0.1.0",
+    "description": "React component library",
+    "main": "build/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "webpack --watch",
+        "build": "webpack"
+    },
+    "keywords": [
+        "react",
+        "components"
+    ],
+    "author": "Sarcoma <sean@orderandchaoscreative.com>",
+    "license": "MIT",
+    "dependencies": {
+        "@orderandchaos/styles": "^1.0.1",
+        "rc-slider": "^8.6.9"
+    },
+    "peerDependencies": {
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "react-router-dom": "^5.0.0"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.0.5",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-plugin-transform-react-jsx": "^6.24.1",
+        "babel-preset-env": "^1.7.0",
+        "css-loader": "^2.1.1",
+        "node-sass": "^4.11.0",
+        "sass-loader": "^7.1.0",
+        "style-loader": "^0.23.1",
+        "webpack": "^4.30.0",
+        "webpack-cli": "^3.3.1"
+    }
+}
