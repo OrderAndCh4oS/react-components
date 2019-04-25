@@ -6,6 +6,10 @@ export const Container = ({children, tag = 'div', className = '', ...rest}) => {
     return (<Tag className={'container ' + className} {...rest}>{children}</Tag>);
 };
 
+export const ContainerFullWidth = ({children, className = '', ...rest}) => {
+    return (<Container className={'container--full-width' + className} {...rest}>{children}</Container>);
+};
+
 export const Row = ({children, tag = 'div', className = '', ...rest}) => {
     const Tag = `${tag}`;
     return (<Tag className={'row ' + className} {...rest}>{children}</Tag>);
