@@ -11,8 +11,8 @@ const Label = ({label, htmlFor}) => <label
 export const FormError = ({error}) => error ?
     <p className="form-field--error">{error}</p> : null;
 
-export const Field = ({className, children, error}) => (
-    <div className={['form-field', className].join(' ')}>
+export const Field = ({className, type, children, error}) => (
+    <div className={['form-field', type, className].join(' ')}>
         {children}
         <FormError error={error}/>
     </div>
@@ -22,16 +22,17 @@ export const Input = (
     {
         label,
         name,
+        type = 'text',
         error = false,
         valid = false,
         className = '',
         ...props
     }) => {
     return (
-        <Field error={error}>
+        <Field type={'form-field--' + type} error={error}>
             <Label label={label} htmlFor={name}/>
             <input {...props} id={name} name={name} type={type} className={[
-                'form-field--input',
+                'input--' + type,
                 error ? 'input--error' : '',
                 valid ? 'input--valid' : '',
                 className,
@@ -50,10 +51,10 @@ export const TextArea = (
         className = '',
         ...props
     }) => (
-    <Field type='text-area' error={error}>
+    <Field type='form-field--text-area' error={error}>
         <Label label={label} htmlFor={name}/>
         <textarea {...props} id={name} name={name} className={[
-            'form-field--text-area',
+            'input--text-area',
             error ? 'input--error' : '',
             valid ? 'input--valid' : '',
             className,
@@ -74,10 +75,10 @@ export const Select = (
         ...props
     }) => {
     return (
-        <Field type='select' error={error}>
+        <Field type='form-field--select' error={error}>
             <Label label={label} htmlFor={name}/>
             <select {...props} id={name} name={name} className={[
-                'form-field--select',
+                'input--select',
                 error ? 'input--error' : '',
                 className,
             ].join(' ')}
@@ -92,7 +93,7 @@ export const Select = (
         </Field>
     );
 };
-// Todo: add type back in, use form-field--xxxx style classes for type
+
 export const Switch = (
     {
         value = false,
@@ -145,7 +146,6 @@ export const Slider = (
         label,
         value,
         name,
-        type,
         error,
         decimals = 0,
         className,
@@ -154,7 +154,7 @@ export const Slider = (
         ...props
     }) => {
     return (
-        <Field type={type} error={error}>
+        <Field type={'form-field--slider'} error={error}>
             <Label
                 label={label + ': ' + value.toFixed(decimals)} htmlFor={name}
             />
@@ -162,7 +162,7 @@ export const Slider = (
                 name={name}
                 id={name}
                 value={value}
-                className={['form-slider', className].join(' ')}
+                className={['input--slider', className].join(' ')}
                 onChange={(value) => {
                     onChange(name, value);
                 }}
