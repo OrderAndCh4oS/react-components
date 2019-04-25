@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types,indent */
 import React from 'react';
 
-export const Container = ({className = '', children, ...rest}) =>
+export const Container = ({children, className = '', ...rest}) =>
     <div className={'container ' + className} {...rest}>{children}</div>;
 
-export const Row = ({className = '', children, ...rest}) =>
+export const Row = ({children, className = '', ...rest}) =>
     <div className={'row ' + className} {...rest}>{children}</div>;
 
-export const Column = ({span = 12, push = false, className = '', children, ...rest}) => {
+export const Column = ({span = ['12'], push = [], className = '', children, ...rest}) => {
     const classes = [
         'column',
-        'col-' + span,
-        push ? ' push-' + push : '',
+        span.map(s => 'col-' + s).join(' '),
+        push.map(s => 'push-' + s).join(' '),
         className
     ].join(' ');
     return (
@@ -23,7 +23,7 @@ export const Column = ({span = 12, push = false, className = '', children, ...re
     );
 };
 
-export const Panel = ({className = '', children, ...rest}) =>
+export const Panel = ({children, className = '', ...rest}) =>
     <div className={'panel ' + className} {...rest}>
         {children}
     </div>
