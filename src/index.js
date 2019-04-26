@@ -1,6 +1,4 @@
-import * as structure from './structure';
-import * as typography from './typography';
-import * as form from './form';
-import * as button from './button';
-
-export {structure, typography, form, button}
+export {Container, ContainerFullWidth, Row, Column, Panel, Table} from './structure';
+export {Title, Pretitle, IntroText, Text} from './typography';
+export {Field, Input, Select, Slider, Switch} from './form';
+export {Button, Link, LinkButton} from './button';

@@ -2,15 +2,11 @@ var path = require('path');
 module.exports = {
     entry: {
         index: './src/index.js',
-        button: './src/button.js',
-        form: './src/form.js',
-        structure: './src/structure.js',
-        typography: './src/typography.js',
     },
     output: {
-        path: path.resolve(__dirname, 'components'),
-        filename: "[name].js",
-        library: ["ReactComponents", "[name]"],
+        path: path.resolve(__dirname, 'dist/lib'),
+        filename: "index.js",
+        library: 'OrderAndChaosReactComponents',
         libraryTarget: 'commonjs2'
     },
     module: {
@@ -18,7 +14,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 include: path.resolve(__dirname, 'src'),
-                exclude: /(node_modules|bower_components|build)/,
+                exclude: /(node_modules|bower_components|dist)/,
                 use: {
                     loader: 'babel-loader',
                     options: {
@@ -43,19 +39,19 @@ module.exports = {
     externals: {
         '@orderandchaos/styles': {
             'commonjs': '@orderandchaos/styles',
-            'commonjs2': '@orderandchaos/styles'
+            'commonjs2': '@orderandchaos/styles',
         },
         'react': {
             'commonjs': 'react',
-            'commonjs2': 'react'
+            'commonjs2': 'react',
         },
         'react-dom': {
             'commonjs': 'react-dom',
-            'commonjs2': 'react-dom'
+            'commonjs2': 'react-dom',
         },
         'react-router-dom': {
             'commonjs': 'react-router-dom',
-            'commonjs2': 'react-router-dom'
+            'commonjs2': 'react-router-dom',
         }
     }
 };

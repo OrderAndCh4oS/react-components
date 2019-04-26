@@ -7,7 +7,7 @@ export const Container = ({children, tag = 'div', className = '', ...rest}) => {
 };
 
 export const ContainerFullWidth = ({children, className = '', ...rest}) => {
-    return (<Container className={'container--full-width' + className} {...rest}>{children}</Container>);
+    return (<Container className={'container--full-width ' + className} {...rest}>{children}</Container>);
 };
 
 export const Row = ({children, tag = 'div', className = '', ...rest}) => {
