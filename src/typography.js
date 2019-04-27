@@ -21,7 +21,7 @@ Pretitle.propTypes = {
 };
 
 export const IntroText = ({className = '', children, ...rest}) =>
-    <p className={'intro-text ' + className} {...rest}>{children}</p>;
+    <p className={'text--intro ' + className} {...rest}>{children}</p>;
 
 IntroText.propTypes = {
     className: PropTypes.string,
@@ -29,7 +29,7 @@ IntroText.propTypes = {
 };
 
 export const Text = ({className = '', children, ...rest}) =>
-    <p className={'text ' + className} {...rest}>{children}</p>;
+    <p className={'text--body ' + className} {...rest}>{children}</p>;
 
 Text.propTypes = {
     className: PropTypes.string,
