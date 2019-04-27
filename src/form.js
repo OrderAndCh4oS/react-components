@@ -102,7 +102,7 @@ export const Switch = (
         error,
         onChange,
         onBlur,
-        className,
+        className = '',
         ...props
     }) => {
     const classes = ['button--switch', className, value ? 'button--switch--on' : ''].join(' ');
@@ -147,10 +147,10 @@ export const Slider = (
         value,
         name,
         error,
-        decimals = 0,
-        className,
         onChange,
         onBlur,
+        decimals = 0,
+        className = '',
         ...props
     }) => {
     return (
