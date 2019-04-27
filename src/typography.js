@@ -35,3 +35,29 @@ Text.propTypes = {
     className: PropTypes.string,
     children: PropTypes.any.isRequired
 };
+
+export const BlockQuote = ({tag = 'blockquote', className = '', children, ...rest}) => {
+    const Tag = `${tag}`;
+    return (
+        <Tag className={'blockquote ' + className} {...rest}>
+            {children}
+        </Tag>
+    );
+};
+
+BlockQuote.propTypes = {
+    tag: PropTypes.string,
+    className: PropTypes.string,
+    children: PropTypes.any.isRequired
+};
+
+export const Citation = ({className = '', children, ...rest}) =>
+    <p className={'citation ' + className} {...rest}>
+        {children}
+    </p>
+;
+
+Citation.propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.any.isRequired
+};
