@@ -29,7 +29,7 @@ IntroText.propTypes = {
 };
 
 export const Text = ({className = '', children, ...rest}) =>
-    <p className={'text--body ' + className} {...rest}>{children}</p>;
+    <p className={'text ' + className} {...rest}>{children}</p>;
 
 Text.propTypes = {
     className: PropTypes.string,
@@ -52,9 +52,9 @@ BlockQuote.propTypes = {
 };
 
 export const Citation = ({className = '', children, ...rest}) =>
-    <p className={'citation ' + className} {...rest}>
+    <span className={'citation ' + className} {...rest}>
         {children}
-    </p>
+    </span>
 ;
 
 Citation.propTypes = {
