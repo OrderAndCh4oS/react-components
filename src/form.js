@@ -132,7 +132,6 @@ const StyledSlider = (props) =>
         marginLeft: -7,
         marginTop: -3,
         backgroundColor: '#fcfcfc',
-
     }} railStyle={{backgroundColor: '#332f2f', height: 8}} trackStyle={{
         backgroundColor: '#fcfcfc',
         height: 6,
