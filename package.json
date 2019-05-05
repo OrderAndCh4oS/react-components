@@ -28,12 +28,10 @@
         "react-router-dom": "^5.0.0"
     },
     "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.3",
-        "babel-loader": "^7.0.5",
-        "babel-plugin-transform-object-rest-spread": "^6.26.0",
-        "babel-plugin-transform-react-jsx": "^6.24.1",
-        "babel-preset-env": "^1.7.0",
+        "@babel/core": "^7.4.4",
+        "@babel/preset-env": "^7.4.4",
+        "@babel/preset-react": "^7.0.0",
+        "babel-loader": "^8.0.5",
         "css-loader": "^2.1.1",
         "node-sass": "^4.11.0",
         "sass-loader": "^7.1.0",

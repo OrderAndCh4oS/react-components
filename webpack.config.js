@@ -1,4 +1,5 @@
-var path = require('path');
+const path = require('path');
+
 module.exports = {
     entry: {
         index: './src/index.js',
@@ -17,9 +18,6 @@ module.exports = {
                 exclude: /(node_modules|bower_components|dist)/,
                 use: {
                     loader: 'babel-loader',
-                    options: {
-                        presets: ['env']
-                    }
                 }
             },
             {

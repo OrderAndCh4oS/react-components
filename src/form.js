@@ -105,8 +105,12 @@ export const Switch = (
         className = '',
         ...props
     }) => {
-    const classes = ['button--switch', className, value ? 'button--switch--on' : ''].join(' ');
-    const title = [value ? 'button--switch--on' : 'button--switch--off'].join(' ');
+    const classes = [
+        'button--switch',
+        className,
+        value ? 'button--switch--on' : ''].join(' ');
+    const title = [value ? 'button--switch--on' : 'button--switch--off'].join(
+        ' ');
     return (
         <Field type='form-field--switch' error={error}>
             <Label label={label} htmlFor={name}/>
@@ -132,7 +136,6 @@ const StyledSlider = (props) =>
         marginLeft: -7,
         marginTop: -3,
         backgroundColor: '#fcfcfc',
-
     }} railStyle={{backgroundColor: '#332f2f', height: 8}} trackStyle={{
         backgroundColor: '#fcfcfc',
         height: 6,
