@@ -13,7 +13,7 @@ const Picture = ({src, sources, alt, className = ''}) =>
 
 const Caption = ({children, className = ''}) =>
     <p className={'text text--caption ' + className}>
-        {children()}
+        {children}
     </p>
 ;
 
