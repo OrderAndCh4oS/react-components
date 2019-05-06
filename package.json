@@ -1,8 +1,9 @@
 {
     "name": "@orderandchaos/react-components",
-    "version": "0.5.14",
+    "version": "0.6.0",
     "description": "React component library",
     "main": "dist/lib/index.js",
+    "module": "dist/lib/index.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/sarcoma/orderandchaos-react-components"
