@@ -11,4 +11,10 @@ const Picture = ({src, sources, alt, className = ''}) =>
     </picture>
 ;
 
-export { Picture };
+const Caption = ({children, className = ''}) =>
+    <p className={'text text--caption ' + className}>
+        {children()}
+    </p>
+;
+
+export { Picture, Caption };
