@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 
 import React from 'react';
-import RCSlider from 'rc-slider/lib/Slider';
-import 'rc-slider/assets/index.css';
 
 const Label = ({label, htmlFor}) => <label
     htmlFor={htmlFor} className="label--text"
@@ -120,58 +118,6 @@ export const Switch = (
             }} onClick={() => {
                 onChange(name, !value);
             }} className={classes}
-                {...props}
-            />
-        </Field>
-    );
-};
-
-const StyledSlider = (props) =>
-    <RCSlider
-        {...props} style={{marginTop: 18}} handleStyle={{
-        borderColor: '#332f2f',
-        borderWidth: 1,
-        height: 14,
-        width: 14,
-        marginLeft: -7,
-        marginTop: -3,
-        backgroundColor: '#fcfcfc',
-    }} railStyle={{backgroundColor: '#332f2f', height: 8}} trackStyle={{
-        backgroundColor: '#fcfcfc',
-        height: 6,
-        marginTop: 1,
-        marginLeft: 1,
-    }}
-    />;
-
-export const Slider = (
-    {
-        label,
-        value,
-        name,
-        error,
-        onChange,
-        onBlur,
-        decimals = 0,
-        className = '',
-        ...props
-    }) => {
-    return (
-        <Field type={'form-field--slider'} error={error}>
-            <Label
-                label={label + ': ' + value.toFixed(decimals)} htmlFor={name}
-            />
-            <StyledSlider
-                name={name}
-                id={name}
-                value={value}
-                className={['input--slider', className].join(' ')}
-                onChange={(value) => {
-                    onChange(name, value);
-                }}
-                onLoad={() => {
-                    onBlur(true);
-                }}
                 {...props}
             />
         </Field>
