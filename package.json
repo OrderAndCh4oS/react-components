@@ -1,6 +1,6 @@
 {
     "name": "@orderandchaos/react-components",
-    "version": "0.7.3",
+    "version": "0.7.4",
     "description": "React component library",
     "main": "dist/index.js",
     "module": "dist/index.js",
@@ -19,7 +19,8 @@
     "author": "Sarcoma <sean@orderandchaoscreative.com>",
     "license": "MIT",
     "dependencies": {
-        "@orderandchaos/styles": "^2.0.5",
+        "@orderandchaos/react-components": "^0.7.3",
+        "@orderandchaos/styles": "^2.0.6",
         "corejs": "^1.0.0",
         "rc-slider": "^8.6.9"
     },
