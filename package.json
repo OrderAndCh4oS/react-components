@@ -1,6 +1,6 @@
 {
     "name": "@orderandchaos/react-components",
-    "version": "0.9.0",
+    "version": "0.9.1",
     "description": "React component library",
     "main": "dist/index.js",
     "module": "dist/index.js",
@@ -19,8 +19,7 @@
     "author": "Sarcoma <sean@orderandchaoscreative.com>",
     "license": "MIT",
     "dependencies": {
-        "@orderandchaos/react-components": "^0.7.3",
-        "@orderandchaos/styles": "^2.0.6",
+        "@orderandchaos/styles": "^2.1.2",
         "corejs": "^1.0.0"
     },
     "peerDependencies": {
@@ -38,6 +37,8 @@
         "@babel/runtime": "^7.4.4",
         "acorn": "^6.0.0",
         "preppy": "^7.13.1",
-        "typescript": "3.x"
+        "typescript": "3.x",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6"
     }
 }
