@@ -25,22 +25,60 @@ export const Input = (
         valid = false,
         className = '',
         ...props
+    }) =>
+    <input {...props} id={name} name={name} type={type} className={[
+        'input--' + type,
+        error ? 'input--error' : '',
+        valid ? 'input--valid' : '',
+        className,
+    ].join(' ')}
+    />
+;
+
+export const InputField = (
+    {
+        label,
+        name,
+        type = 'text',
+        error = false,
+        valid = false,
+        className = '',
+        ...props
     }) => {
     return (
-        <Field type={'form-field--' + type} error={error}>
+        <Field
+            type={'form-field--' + type} error={error}
+        >
             <Label label={label} htmlFor={name}/>
-            <input {...props} id={name} name={name} type={type} className={[
-                'input--' + type,
-                error ? 'input--error' : '',
-                valid ? 'input--valid' : '',
-                className,
-            ].join(' ')}
+            <Input
+                {...props} id={name}
+                name={name}
+                type={type}
+                error={error}
+                valid={valid}
             />
         </Field>
     );
 };
 
 export const TextArea = (
+    {
+        name,
+        error = false,
+        valid = false,
+        className = '',
+        ...props
+    }) => (
+    <textarea {...props} id={name} name={name} className={[
+        'input--text-area',
+        error ? 'input--error' : '',
+        valid ? 'input--valid' : '',
+        className,
+    ].join(' ')}
+    />
+);
+
+export const TextAreaField = (
     {
         label,
         name,
@@ -51,17 +89,17 @@ export const TextArea = (
     }) => (
     <Field type='form-field--text-area' error={error}>
         <Label label={label} htmlFor={name}/>
-        <textarea {...props} id={name} name={name} className={[
-            'input--text-area',
-            error ? 'input--error' : '',
-            valid ? 'input--valid' : '',
-            className,
-        ].join(' ')}
+        <TextArea
+            {...props} id={name}
+            name={name}
+            error={error}
+            valid={valid}
+            className={className}
         />
     </Field>
 );
 
-export const Select = (
+export const SelectField = (
     {
         label,
         name,
@@ -75,22 +113,42 @@ export const Select = (
     return (
         <Field type='form-field--select' error={error}>
             <Label label={label} htmlFor={name}/>
-            <select {...props} id={name} name={name} className={[
-                'input--select',
-                error ? 'input--error' : '',
-                className,
-            ].join(' ')}
-            >
-                <option value="">{initialField}</option>
-                {options.map((option) =>
-                    <option
-                        key={option.value} value={option.value}
-                    >{option.name}</option>,
-                )}
-            </select>
+            <Select
+                {...props} name={name}
+                error={error}
+                valid={valid}
+                className={className}
+                options={options}
+                initialField={initialField}
+            />
         </Field>
     );
 };
+
+export const Select = (
+    {
+        name,
+        error = false,
+        valid = false,
+        className = '',
+        options = [],
+        initialField = 'Select an option',
+        ...props
+    }) =>
+    <select {...props} id={name} name={name} className={[
+        'input--select',
+        error ? 'input--error' : '',
+        className,
+    ].join(' ')}
+    >
+        <option value="">{initialField}</option>
+        {options.map((option) =>
+            <option
+                key={option.value} value={option.value}
+            >{option.name}</option>,
+        )}
+    </select>
+;
 
 export const Switch = (
     {

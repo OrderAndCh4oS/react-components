@@ -16,3 +16,18 @@ Button.propTypes = {
     className: PropTypes.string,
     children: PropTypes.string.isRequired
 };
+
+export const ButtonIcon = ({ariaLabel, className = '', icon = null, ...rest}) => (
+    <button
+        aria-label={ariaLabel}
+        className={['button', className].join(' ')} {...rest}>
+        {icon ? <span className='button--icon-centre'>{icon}</span> : null}
+    </button>
+);
+
+Button.propTypes = {
+    ariaLabel: PropTypes.string.isRequired,
+    icon: PropTypes.element.isRequired,
+    className: PropTypes.string,
+    children: PropTypes.string.isRequired,
+};
