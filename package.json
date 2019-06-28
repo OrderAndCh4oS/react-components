@@ -1,44 +1,51 @@
 {
-    "name": "@orderandchaos/react-components",
-    "version": "0.10.2",
-    "description": "React component library",
-    "main": "dist/index.js",
-    "module": "dist/index.js",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/sarcoma/orderandchaos-react-components"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "prepare": "preppy"
-    },
-    "keywords": [
-        "react",
-        "components"
-    ],
-    "author": "Sarcoma <sean@orderandchaoscreative.com>",
-    "license": "MIT",
-    "dependencies": {
-        "@orderandchaos/styles": "^2.1.2",
-        "corejs": "^1.0.0"
-    },
-    "peerDependencies": {
-        "react": "^16.8.6",
-        "react-dom": "^16.8.6"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.4.4",
-        "@babel/plugin-proposal-class-properties": "^7.4.4",
-        "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
-        "@babel/plugin-transform-runtime": "^7.4.4",
-        "@babel/preset-env": "^7.4.4",
-        "@babel/preset-react": "^7.0.0",
-        "@babel/preset-typescript": "^7.3.3",
-        "@babel/runtime": "^7.4.4",
-        "acorn": "^6.0.0",
-        "preppy": "^7.13.1",
-        "react": "^16.8.6",
-        "react-dom": "^16.8.6",
-        "typescript": "3.x"
-    }
+  "name": "@orderandchaos/react-components",
+  "version": "0.10.3",
+  "description": "React component library",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sarcoma/orderandchaos-react-components"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "preppy",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "keywords": [
+    "react",
+    "components"
+  ],
+  "author": "Sarcoma <sean@orderandchaoscreative.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@orderandchaos/styles": "^2.1.2",
+    "corejs": "^1.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@babel/runtime": "^7.4.4",
+    "@storybook/addon-actions": "^5.1.3",
+    "@storybook/addon-links": "^5.1.3",
+    "@storybook/addons": "^5.1.3",
+    "@storybook/react": "^5.1.3",
+    "acorn": "^6.0.0",
+    "babel-loader": "^8.0.6",
+    "preppy": "^7.13.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "typescript": "3.x"
+  }
 }
