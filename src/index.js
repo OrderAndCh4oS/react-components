@@ -1,5 +1,5 @@
 export {
-    Container, ContainerFullWidth, Row, Column, Panel, Table,
+    Container, ContainerFullWidth, Row, Column, Block, Panel, Table,
 } from './structure';
 export {
     Title, Pretitle, IntroText, Text, BlockQuote, Citation,

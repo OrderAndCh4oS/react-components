@@ -30,6 +30,11 @@ export const Column = ({span = ['12'], push = [], tag = 'div', className = '', c
     );
 };
 
+export const Block = ({children, tag = 'div', className = '', ...rest}) => {
+    const Tag = `${tag}`;
+    return (<Tag className={'block ' + className} {...rest}>{children}</Tag>);
+};
+
 export const Panel = ({children, tag = 'div', className = '', ...rest}) => {
     const Tag = `${tag}`;
     return (
