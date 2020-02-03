@@ -1,32 +1,30 @@
 import React from 'react';
 import * as styles from '@orderandchaos/react-styles/dist/styles.css';
 
-export const Container = ({children, tag = 'div', className = null, ...rest}) => {
+export const Container = ({children, tag = 'div', className = '', ...rest}) => {
     const Tag = `${tag}`;
     return (
         <Tag
-            className={`${styles.container} 
-            ${className}`}
+            className={`${styles.container} ${className}`}
             {...rest}
         >{children}</Tag>);
 };
 
-export const ContainerFullWidth = ({children, className = null, ...rest}) => {
+export const ContainerFullWidth = ({children, className = '', ...rest}) => {
     return (
         <Container
-            className={`${styles.container_fullWidth} 
-            ${className}`}
+            className={`${styles.container_fullWidth} ${className}`}
             {...rest}
         >{children}</Container>);
 };
 
-export const Row = ({children, tag = 'div', className = null, ...rest}) => {
+export const Row = ({children, tag = 'div', className = '', ...rest}) => {
     const Tag = `${tag}`;
     return (
         <Tag className={`${styles.row} ${className}`} {...rest}>{children}</Tag>);
 };
 
-export const Column = ({span = styles.col12, push = null, tag = 'div', className = null, children, ...rest}) => {
+export const Column = ({span = styles.col12, push = null, tag = 'div', className = '', children, ...rest}) => {
     const Tag = `${tag}`;
     const classes = `${styles.column} ${span} ${push} ${className}`;
     return (
@@ -36,7 +34,7 @@ export const Column = ({span = styles.col12, push = null, tag = 'div', className
     );
 };
 
-export const Panel = ({children, tag = 'div', className = null, ...rest}) => {
+export const Panel = ({children, tag = 'div', className = '', ...rest}) => {
     const Tag = `${tag}`;
     return (
         <Tag className={`${styles.panel} ${className}`} {...rest}>
@@ -60,7 +58,7 @@ function getHeaders(headers) {
         <th key={index}>{header}</th>)}</tr>;
 }
 
-export const Table = ({headers = [], rows = [], className = null, ...rest}) =>
+export const Table = ({headers = [], rows = [], className = '', ...rest}) =>
     <table className={`table ${className}`}  {...rest}>
         <thead>
         {getHeaders(headers)}

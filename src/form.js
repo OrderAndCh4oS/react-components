@@ -23,7 +23,7 @@ export const Input = (
         type = 'text',
         error = false,
         valid = false,
-        className = null,
+        className = '',
         ...props
     }) => {
     return (
@@ -36,7 +36,7 @@ export const Input = (
                 type={type}
                 className={`input ${error ? styles.input_error : null}, ${valid
                     ? styles.input_valid
-                    : null}, ${className}`}
+                    : ''}, ${className}`}
             />
         </Field>
     );
@@ -48,7 +48,7 @@ export const TextArea = (
         name,
         error = false,
         valid = false,
-        className = null,
+        className = '',
         ...props
     }) => (
     <Field type='formField--textArea' error={error}>
@@ -59,7 +59,7 @@ export const TextArea = (
             name={name}
             className={`input_textArea ${error
                 ? styles.input_error
-                : null} ${valid ? styles.input_valid : null} ${className}`}
+                : ''} ${valid ? styles.input_valid : null} ${className}`}
         />
     </Field>
 );
@@ -70,21 +70,21 @@ export const Select = (
         name,
         error = false,
         valid = false,
-        className = null,
+        className = '',
         options = [],
         initialField = 'Select an option',
         ...props
     }) => {
     return (
-        <Field type='form-field--select' error={error}>
+        <Field type='formField_select' error={error}>
             <Label label={label} htmlFor={name}/>
             <select
                 {...props}
                 id={name}
                 name={name}
-                className={`input--select ${error
+                className={`input_select ${error
                     ? styles.input_error
-                    : null} ${className}`}
+                    : ''} ${className}`}
             >
                 <option value="">{initialField}</option>
                 {options.map((option) =>
@@ -105,12 +105,12 @@ export const Switch = (
         error,
         onChange,
         onBlur,
-        className = null,
+        className = '',
         ...props
     }) => {
     const classes = `${styles.button_switch} ${className} ${value
         ? styles.button_switch_on
-        : null}`;
+        : ''}`;
     const title = value ? 'On' : 'Off';
     return (
         <Field type='formField_switch' error={error}>
