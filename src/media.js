@@ -9,7 +9,7 @@ const Picture = ({src, sources, alt, className = null}) =>
         <img
             alt={alt}
             src={src}
-            className={`${styles.image} ${styles.picture} ${className}`}
+            className={`image picture ${className}`}
         />
     </picture>
 ;

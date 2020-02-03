@@ -25,7 +25,7 @@ export const BlockQuote = ({tag = 'blockquote', className = null, children, ...r
 };
 
 export const Citation = ({className = null, children, ...rest}) =>
-    <span className={`${citation} ${className}`} {...rest}>
+    <span className={`${styles.citation} ${className}`} {...rest}>
         {children}
     </span>
 ;

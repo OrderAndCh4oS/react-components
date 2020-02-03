@@ -1,16 +1,23 @@
-/* eslint-disable react/prop-types,indent */
 import React from 'react';
 import * as styles from '@orderandchaos/react-styles/dist/styles.css';
 
 export const Container = ({children, tag = 'div', className = null, ...rest}) => {
     const Tag = `${tag}`;
     return (
-        <Tag className={`${styles.container} ${className}`} {...rest}>{children}</Tag>);
+        <Tag
+            className={`${styles.container} 
+            ${className}`}
+            {...rest}
+        >{children}</Tag>);
 };
 
 export const ContainerFullWidth = ({children, className = null, ...rest}) => {
     return (
-        <Container className={`${styles.container_fullWidth} ${className}`} {...rest}>{children}</Container>);
+        <Container
+            className={`${styles.container_fullWidth} 
+            ${className}`}
+            {...rest}
+        >{children}</Container>);
 };
 
 export const Row = ({children, tag = 'div', className = null, ...rest}) => {
