@@ -1,9 +1,10 @@
 import React from 'react';
 import * as styles from '@orderandchaos/react-styles/dist/styles.css';
 
-const Label = ({label, htmlFor}) => <label
-    htmlFor={htmlFor} className={styles.label_text}
->{label}</label>;
+const Label = ({label, htmlFor}) =>
+    <label
+        htmlFor={htmlFor} className={styles.label_text}
+    >{label}</label>;
 
 export const FormError = ({error}) => error ?
     <p className={styles.c_error}>{error}</p> : null;
@@ -33,7 +34,9 @@ export const Input = (
                 id={name}
                 name={name}
                 type={type}
-                className={`input ${error ? styles.input_error : null}, ${valid ? styles.input_valid : null}, ${className}`}
+                className={`input ${error ? styles.input_error : null}, ${valid
+                    ? styles.input_valid
+                    : null}, ${className}`}
             />
         </Field>
     );
@@ -54,7 +57,9 @@ export const TextArea = (
             {...props}
             id={name}
             name={name}
-            className={`input_textArea ${error ? styles.input_error : null} ${valid ? styles.input_valid : null} ${className}`}
+            className={`input_textArea ${error
+                ? styles.input_error
+                : null} ${valid ? styles.input_valid : null} ${className}`}
         />
     </Field>
 );
@@ -77,7 +82,9 @@ export const Select = (
                 {...props}
                 id={name}
                 name={name}
-                className={`input--select ${error ? styles.input_error : null} ${className}`}
+                className={`input--select ${error
+                    ? styles.input_error
+                    : null} ${className}`}
             >
                 <option value="">{initialField}</option>
                 {options.map((option) =>
@@ -101,7 +108,9 @@ export const Switch = (
         className = null,
         ...props
     }) => {
-    const classes = `${styles.button_switch} ${className} ${value ? styles.button_switch_on : null}`;
+    const classes = `${styles.button_switch} ${className} ${value
+        ? styles.button_switch_on
+        : null}`;
     const title = value ? 'On' : 'Off';
     return (
         <Field type='formField_switch' error={error}>
