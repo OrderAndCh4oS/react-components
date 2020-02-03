@@ -1,6 +1,6 @@
 {
     "name": "@orderandchaos/react-components",
-    "version": "0.5.7",
+    "version": "1.0.0",
     "description": "React component library",
     "main": "dist/lib/index.js",
     "repository": {
@@ -19,13 +19,14 @@
     "author": "Sarcoma <sean@orderandchaoscreative.com>",
     "license": "MIT",
     "dependencies": {
-        "@orderandchaos/styles": "^1.0.1",
-        "rc-slider": "^8.6.9"
+        "@orderandchaos/react-styles": "^0.1.0"
     },
     "peerDependencies": {
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
-        "react-router-dom": "^5.0.0"
+        "react-router-dom": "^5.0.0",
+        "modularscale-sass": "^3.0.10",
+        "node-sass": "^4.13.1"
     },
     "devDependencies": {
         "babel-cli": "^6.26.0",
@@ -35,10 +36,12 @@
         "babel-plugin-transform-react-jsx": "^6.24.1",
         "babel-preset-env": "^1.7.0",
         "css-loader": "^2.1.1",
-        "node-sass": "^4.11.0",
+        "node-sass": "^4.13.1",
         "sass-loader": "^7.1.0",
         "style-loader": "^0.23.1",
         "webpack": "^4.30.0",
-        "webpack-cli": "^3.3.1"
+        "webpack-cli": "^3.3.1",
+        "modularscale-sass": "^3.0.10",
+        "node-sass-tilde-importer": "^1.0.2"
     }
 }

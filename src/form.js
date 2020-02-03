@@ -1,18 +1,15 @@
-/* eslint-disable react/prop-types */
-
 import React from 'react';
-import RCSlider from 'rc-slider/lib/Slider';
-import 'rc-slider/assets/index.css';
+import * as styles from '@orderandchaos/react-styles/dist/styles.css';
 
 const Label = ({label, htmlFor}) => <label
-    htmlFor={htmlFor} className="label--text"
+    htmlFor={htmlFor} className={styles.label_text}
 >{label}</label>;
 
 export const FormError = ({error}) => error ?
-    <p className="form-field--error">{error}</p> : null;
+    <p className={styles.c_error}>{error}</p> : null;
 
 export const Field = ({className, type, children, error}) => (
-    <div className={['form-field', type, className].join(' ')}>
+    <div className={`${styles.formField}, ${type}, ${className}`}>
         {children}
         <FormError error={error}/>
     </div>
@@ -25,18 +22,18 @@ export const Input = (
         type = 'text',
         error = false,
         valid = false,
-        className = '',
+        className = null,
         ...props
     }) => {
     return (
-        <Field type={'form-field--' + type} error={error}>
+        <Field type={type} error={error}>
             <Label label={label} htmlFor={name}/>
-            <input {...props} id={name} name={name} type={type} className={[
-                'input--' + type,
-                error ? 'input--error' : '',
-                valid ? 'input--valid' : '',
-                className,
-            ].join(' ')}
+            <input
+                {...props}
+                id={name}
+                name={name}
+                type={type}
+                className={`input ${error ? styles.input_error : null}, ${valid ? styles.input_valid : null}, ${className}`}
             />
         </Field>
     );
@@ -48,17 +45,16 @@ export const TextArea = (
         name,
         error = false,
         valid = false,
-        className = '',
+        className = null,
         ...props
     }) => (
-    <Field type='form-field--text-area' error={error}>
+    <Field type='formField--textArea' error={error}>
         <Label label={label} htmlFor={name}/>
-        <textarea {...props} id={name} name={name} className={[
-            'input--text-area',
-            error ? 'input--error' : '',
-            valid ? 'input--valid' : '',
-            className,
-        ].join(' ')}
+        <textarea
+            {...props}
+            id={name}
+            name={name}
+            className={`input_textArea ${error ? styles.input_error : null} ${valid ? styles.input_valid : null} ${className}`}
         />
     </Field>
 );
@@ -69,7 +65,7 @@ export const Select = (
         name,
         error = false,
         valid = false,
-        className = '',
+        className = null,
         options = [],
         initialField = 'Select an option',
         ...props
@@ -77,11 +73,11 @@ export const Select = (
     return (
         <Field type='form-field--select' error={error}>
             <Label label={label} htmlFor={name}/>
-            <select {...props} id={name} name={name} className={[
-                'input--select',
-                error ? 'input--error' : '',
-                className,
-            ].join(' ')}
+            <select
+                {...props}
+                id={name}
+                name={name}
+                className={`input--select ${error ? styles.input_error : null} ${className}`}
             >
                 <option value="">{initialField}</option>
                 {options.map((option) =>
@@ -102,72 +98,21 @@ export const Switch = (
         error,
         onChange,
         onBlur,
-        className = '',
+        className = null,
         ...props
     }) => {
-    const classes = ['button--switch', className, value ? 'button--switch--on' : ''].join(' ');
-    const title = [value ? 'button--switch--on' : 'button--switch--off'].join(' ');
+    const classes = `${styles.button_switch} ${className} ${value ? styles.button_switch_on : null}`;
+    const title = value ? 'On' : 'Off';
     return (
-        <Field type='form-field--switch' error={error}>
+        <Field type='formField_switch' error={error}>
             <Label label={label} htmlFor={name}/>
             <button
-                type='button' id={name} title={title} onBlur={() => {
-                onBlur(true);
-            }} onClick={() => {
-                onChange(name, !value);
-            }} className={classes}
-                {...props}
-            />
-        </Field>
-    );
-};
-
-const StyledSlider = (props) =>
-    <RCSlider
-        {...props} style={{marginTop: 18}} handleStyle={{
-        borderColor: '#332f2f',
-        borderWidth: 1,
-        height: 14,
-        width: 14,
-        marginLeft: -7,
-        marginTop: -3,
-        backgroundColor: '#fcfcfc',
-    }} railStyle={{backgroundColor: '#332f2f', height: 8}} trackStyle={{
-        backgroundColor: '#fcfcfc',
-        height: 6,
-        marginTop: 1,
-        marginLeft: 1,
-    }}
-    />;
-
-export const Slider = (
-    {
-        label,
-        value,
-        name,
-        error,
-        onChange,
-        onBlur,
-        decimals = 0,
-        className = '',
-        ...props
-    }) => {
-    return (
-        <Field type={'form-field--slider'} error={error}>
-            <Label
-                label={label + ': ' + value.toFixed(decimals)} htmlFor={name}
-            />
-            <StyledSlider
-                name={name}
+                type='button'
                 id={name}
-                value={value}
-                className={['input--slider', className].join(' ')}
-                onChange={(value) => {
-                    onChange(name, value);
-                }}
-                onLoad={() => {
-                    onBlur(true);
-                }}
+                title={title}
+                onBlur={() => {onBlur(true);}}
+                onClick={() => {onChange(name, !value);}}
+                className={classes}
                 {...props}
             />
         </Field>

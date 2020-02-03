@@ -1,28 +1,27 @@
 /* eslint-disable react/prop-types,indent */
 import React from 'react';
+import * as styles from '@orderandchaos/react-styles/dist/styles.css';
 
-export const Container = ({children, tag = 'div', className = '', ...rest}) => {
+export const Container = ({children, tag = 'div', className = null, ...rest}) => {
     const Tag = `${tag}`;
-    return (<Tag className={'container ' + className} {...rest}>{children}</Tag>);
+    return (
+        <Tag className={`${styles.container} ${className}`} {...rest}>{children}</Tag>);
 };
 
-export const ContainerFullWidth = ({children, className = '', ...rest}) => {
-    return (<Container className={'container--full-width ' + className} {...rest}>{children}</Container>);
+export const ContainerFullWidth = ({children, className = null, ...rest}) => {
+    return (
+        <Container className={`${styles.container_fullWidth} ${className}`} {...rest}>{children}</Container>);
 };
 
-export const Row = ({children, tag = 'div', className = '', ...rest}) => {
+export const Row = ({children, tag = 'div', className = null, ...rest}) => {
     const Tag = `${tag}`;
-    return (<Tag className={'row ' + className} {...rest}>{children}</Tag>);
+    return (
+        <Tag className={`${styles.row} ${className}`} {...rest}>{children}</Tag>);
 };
 
-export const Column = ({span = ['12'], push = [], tag = 'div', className = '', children, ...rest}) => {
+export const Column = ({span = styles.col12, push = null, tag = 'div', className = null, children, ...rest}) => {
     const Tag = `${tag}`;
-    const classes = [
-        'column',
-        span.map(s => 'col-' + s).join(' '),
-        push.map(s => 'push-' + s).join(' '),
-        className,
-    ].join(' ');
+    const classes = `${styles.column} ${span} ${push} ${className}`;
     return (
         <Tag className={classes} {...rest}>
             {children}
@@ -30,10 +29,10 @@ export const Column = ({span = ['12'], push = [], tag = 'div', className = '', c
     );
 };
 
-export const Panel = ({children, tag = 'div', className = '', ...rest}) => {
+export const Panel = ({children, tag = 'div', className = null, ...rest}) => {
     const Tag = `${tag}`;
     return (
-        <Tag className={'panel ' + className} {...rest}>
+        <Tag className={`${styles.panel} ${className}`} {...rest}>
             {children}
         </Tag>
     );
@@ -54,8 +53,8 @@ function getHeaders(headers) {
         <th key={index}>{header}</th>)}</tr>;
 }
 
-export const Table = ({headers = [], rows = [], className = '', ...rest}) =>
-    <table className={'table ' + className}  {...rest}>
+export const Table = ({headers = [], rows = [], className = null, ...rest}) =>
+    <table className={`table ${className}`}  {...rest}>
         <thead>
         {getHeaders(headers)}
         </thead>
