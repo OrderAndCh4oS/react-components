@@ -30,14 +30,6 @@ module.exports = {
                     'css-loader?modules&localIdentName=[name]_[local]_[hash:base64]',
                 ],
             },
-            {
-                test: /\.scss$/,
-                use: [
-                    'style-loader', // creates style nodes from JS strings
-                    'css-loader', // translates CSS into CommonJS
-                    'sass-loader', // compiles Sass to CSS, using Node Sass by default
-                ],
-            },
         ],
     },
     externals: {
